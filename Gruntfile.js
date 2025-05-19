@@ -1,16 +1,16 @@
 module.exports = function(grunt) {
-    grunt.initConfig({
+
+grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
     less: {
     development: {
         files: {
-        'css/estilo.css': 'less/estilo.less'
+        'css/style.css': 'less/style.less'
         }
     }
     },
 
-    // Tarefa para minificar JS
     uglify: {
     dist: {
         files: {
@@ -20,10 +20,8 @@ module.exports = function(grunt) {
     }
 });
 
+grunt.loadNpmTasks('grunt-contrib-less');
+grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-
-
-    grunt.registerTask('default', ['less', 'uglify']);
+grunt.registerTask('default', ['less', 'uglify']);
 };
